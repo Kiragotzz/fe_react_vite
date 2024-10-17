@@ -13,8 +13,8 @@ export const Container = styled.div`
 
     > .content-close {
       position: absolute;
-      left: calc(260px - 15px);
-      top: calc(100px - 15px);
+      left: calc(260px - 21px);
+      top: calc(100px - 21px);
       animation: showClose .4s;
       background-color: black;
       border-radius: 50%;
@@ -49,12 +49,12 @@ export const Container = styled.div`
       opacity: 0;
       width: 0;
       left: 0;
-      top: calc(100px - 15px);
+      top: calc(100px - 21px);
     }
     to {
       opacity: 1;
-      left: calc(260px - 15px);
-      top: calc(100px - 15px);
+      left: calc(260px - 21px);
+      top: calc(100px - 21px);
     }
   }
 `;
@@ -62,12 +62,13 @@ export const Container = styled.div`
 export const Content = styled.div`
   // margin-top: 100px;
 
-  > div{
+  .link {
     cursor: pointer;
     color: black;
     margin: 32px;
     font-size: 22px;
     display: flex;
+    text-decoration: none;
 
     > div {
       margin-left: 16px;

@@ -3,7 +3,7 @@ import { Container, Content, Logo} from './styles'
 import { FaTimes, FaUser } from 'react-icons/fa'
 import {  BiSolidHome } from 'react-icons/bi'
 import { IoGridSharp, IoArrowBackCircleSharp } from "react-icons/io5";
-import logo from "../../assets/logo-Teddy.png"
+import logo from "../../../assets/logo-Teddy.png"
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 const Sidebar = ({active}) => {
@@ -11,6 +11,11 @@ const Sidebar = ({active}) => {
   const closeSidebar = () => {
     active(false)
   }
+
+  const sair = () => {
+    localStorage.removeItem('nome')
+    return;
+  };
 
   return (
     <Container sidebar={active ? 'true' : 'false'}>
@@ -24,10 +29,9 @@ const Sidebar = ({active}) => {
       </div>
 
       <Content>
-        <Link to="/"> <BiSolidHome />  <div>Home</div></Link>
-        <Link to="/clientes"> <FaUser />  <div>Clientes</div></Link>
-        <div> <FaUser /> <div>Clientes</div></div>
-        <div> <IoGridSharp /> <div>Produtos</div></div>
+        <Link className='link' to="/" onClick={sair}> <BiSolidHome />  <div>Home</div></Link>
+        <Link className='link' to="/clientes"> <FaUser />  <div>Clientes</div></Link>
+        <Link className='link' to="/produtos"> <IoGridSharp />  <div>Produtos</div></Link>
       </Content>
     </Container>
   )
