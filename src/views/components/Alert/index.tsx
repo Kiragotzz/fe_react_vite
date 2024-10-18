@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { ModalStyle, BackgroundStyle } from "./styles";
 import { FaTimes } from "react-icons/fa";
 import {
-  createCliente,
-  updateCliente,
   deleteCliente
 } from "../../../controllers/clientesController";
 
-function Alert({ isOpen, setAlertOpen, cliente, setClienteToRemove }) {
+interface Props {
+  isOpen: boolean;
+  setAlertOpen: () => void;
+  cliente: any;
+  setClienteToRemove: () => void;
+}
+
+function Alert({ isOpen, setAlertOpen, cliente }:Props) {
   if (isOpen) {
     let nometoSet = "";
 
@@ -18,13 +23,13 @@ function Alert({ isOpen, setAlertOpen, cliente, setClienteToRemove }) {
 
     function fechar() {
       setNome('')
-      setAlertOpen(false);
+      setAlertOpen();
     }
 
     async function removeConfirm() {
       let id = cliente.id
       await deleteCliente(id);
-      setAlertOpen(false);
+      setAlertOpen();
     }
 
     return (

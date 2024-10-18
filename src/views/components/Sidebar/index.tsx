@@ -1,12 +1,15 @@
-import React from 'react'
 import { Container, Content, Logo} from './styles'
-import { FaTimes, FaUser } from 'react-icons/fa'
+import { FaUser } from 'react-icons/fa'
 import {  BiSolidHome } from 'react-icons/bi'
-import { IoGridSharp, IoArrowBackCircleSharp } from "react-icons/io5";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 import logo from "../../../assets/logo-Teddy.png"
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Sidebar = ({active}) => {
+interface Props {
+  active: any;
+}
+  // left: ${props => props.sidebar ? '0' : '-100%'};
+const Sidebar = ({active}: Props) => {
 
   const closeSidebar = () => {
     active(false)

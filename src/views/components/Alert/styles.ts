@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalStyle = styled.div`
+export const ModalStyle: any = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -47,7 +47,7 @@ export const ModalStyle = styled.div`
 
 `
 
-export const BackgroundStyle = styled.div`
+export const BackgroundStyle: any = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;

@@ -1,10 +1,9 @@
 // import './HomePage.css'
 import Header from "../../components/Header";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  getClientesById,
-  Cliente,
+  Cliente
 } from "../../../controllers/clientesController";
 import { Container, Content, Card } from "./styles";
 

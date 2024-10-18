@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { Container, Logo } from "./styles";
 import Sidebar from "../Sidebar";
 import logo from "../../../assets/logo-Teddy.png";
-import { useNavigate, useLocation, Link, NavLink } from "react-router-dom";
-
-function Header({selecionados}) {
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
+interface Props {
+  selecionados: any;
+}
+function Header({selecionados}: Props) {
   const navigate = useNavigate();
   const { state } = useLocation();
   let { nome } = state && state.nome ? state : { nome: false };

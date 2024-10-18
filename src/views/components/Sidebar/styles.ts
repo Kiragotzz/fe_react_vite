@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container: any = styled.div`
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
   top: 0px;
   left: 0px;
   width: 260px;;
-  left: ${props => props.sidebar ? '0' : '-100%'};
+
   animation: showSidebar .4s;
   // transition: left 2.9s ease-in-out;
 
@@ -59,7 +59,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Content = styled.div`
+export const Content: any = styled.div`
   // margin-top: 100px;
 
   .link {
@@ -76,7 +76,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Logo = styled.div`
+export const Logo: any = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container: any = styled.div`
   // margin: 16px;
   padding: 0 36px;
 
@@ -61,7 +61,7 @@ export const Container = styled.div`
   }
 `
 
-export const Content = styled.div`
+export const Content: any = styled.div`
   padding: 16px;
   border-radius: 4px;
   // border: 2px solid red;
@@ -75,7 +75,7 @@ export const Content = styled.div`
   max-width: 1380px;
 `
 
-export const Card = styled.div`
+export const Card: any = styled.div`
   // margin: 16px;
   padding: 8px;
   border-radius: 4px;

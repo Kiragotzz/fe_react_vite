@@ -1,13 +1,12 @@
 import axios from 'axios'
 
 export interface Cliente {
+  page: number;
   id: string;
   nome: string;
   salario: string;
   empresa: string;
 }
-
-const API_URL = 'http://localhost:3000';
 
 export const getClients = async (): Promise<Cliente[]> => {
   let response = await axios.get(`/api/clients`);

@@ -32,3 +32,5 @@ export const updateCliente = async (cliente: Cliente): Promise<Cliente> => {
 export const deleteCliente = async (id: any): Promise<void> => {
   await deleteClient(id);
 };
+export type { Cliente };
+

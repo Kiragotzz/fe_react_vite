@@ -1,5 +1,5 @@
 // import './HomePage.css'
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Modal from "../../components/Modal/index";
 import Alert from "../../components/Alert/index";
@@ -24,9 +24,8 @@ function ClientesPage() {
   const [selecionados, setSelecionados] = useState<string[]>([]);
   const [selecionadosToSend, setSelecionadosToSend] = useState<string[]>([]);
 
-  const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(16);
+  const [postsPerPage] = useState(16);
   const [paginationNumbers, setPaginationNumbers] = useState([]);
 
   const loadClientes = async () => {
@@ -74,7 +73,7 @@ function ClientesPage() {
     setPaginationNumbers(paginationNumbers1);
   }
 
-  const handlePagination = (pageNumber) => {
+  const handlePagination = (pageNumber: any) => {
     setCurrentPage(pageNumber);
   };
 
@@ -87,9 +86,9 @@ function ClientesPage() {
       prevSelecionados.includes(id) ? prevSelecionados.filter((clienteId) => clienteId !== id): [...prevSelecionados, id]
     );
 
-    let atual = clientes.filter(e=>e.id == id)
-    let lista = selecionadosToSend.concat()
-    let newLista = atual.concat(lista)
+    let atual:any = clientes.filter(e=>e.id == id)
+    let lista:any = selecionadosToSend.concat()
+    let newLista: any = atual.concat(lista)
     setSelecionadosToSend(newLista)
   };
   async function edit(cliente: any) {
@@ -125,21 +124,21 @@ function ClientesPage() {
                   <div className="content-two">
                     <div
                       className="select"
-                      value={cliente}
+                      // value={cliente}
                       onClick={() => select(cliente.id)}
                     >
                       {selecionados.includes(cliente.id) ? <FaCirclePlus />:<FaPlus />}
                     </div>
                     <div
                       className="edit"
-                      value={cliente}
+                      // value={cliente}
                       onClick={() => edit(cliente)}
                     >
                       <MdOutlineEdit />
                     </div>
                     <div
                       className="remove"
-                      value={cliente}
+                      // value={cliente}
                       onClick={() => remove(cliente)}
                     >
                       <GoTrash />

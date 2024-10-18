@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container: any = styled.div`
   height: 100px;
   display: flex;
   background-color: #f1f1f1;
@@ -67,7 +67,7 @@ export const Container = styled.div`
 
 `
 
-export const Logo = styled.div`
+export const Logo: any = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

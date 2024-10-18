@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { ModalStyle, BackgroundStyle } from "./styles";
 import { FaTimes } from "react-icons/fa";
 import {
@@ -6,9 +6,20 @@ import {
   updateCliente,
 } from "../../../controllers/clientesController";
 
-export default function Modal({ isOpen, setModalOpen, clienteEdit, setCloseModal }) {
-  if (isOpen) {
+interface Props {
+  isOpen: any;
+  setModalOpen: () => void;
+  clienteEdit: any;
+  setCloseModal: () => void;
+}
 
+export default function Modal({
+  isOpen,
+  setModalOpen,
+  clienteEdit,
+  setCloseModal,
+}: Props) {
+  if (isOpen) {
     let idtoSet = "";
     let nometoSet = "";
     let salariotoSet = "";
@@ -22,12 +33,12 @@ export default function Modal({ isOpen, setModalOpen, clienteEdit, setCloseModal
       nometoSet = clienteEdit.nome;
       salariotoSet = clienteEdit.salario;
       empresatoSet = clienteEdit.empresa;
-      titleSet = 'Editar cliente: '
-      titleButtonSet = 'Editar cliente'
+      titleSet = "Editar cliente: ";
+      titleButtonSet = "Editar cliente";
     }
 
-    const [title, setTitle] = useState(titleSet);
-    const [titleButton, setTitleButton] = useState(titleButtonSet);
+    const [title] = useState(titleSet);
+    const [titleButton] = useState(titleButtonSet);
 
     const [id, setId] = useState(idtoSet);
     const [nome, setNome] = useState(nometoSet);
@@ -44,8 +55,7 @@ export default function Modal({ isOpen, setModalOpen, clienteEdit, setCloseModal
           empresa,
         };
 
-        let resCreate = await createCliente(cliente);
-        // console.log('resCreate', resCreate)
+        await createCliente(cliente);
       } else {
         let cliente: any = {
           id: id,
@@ -54,8 +64,7 @@ export default function Modal({ isOpen, setModalOpen, clienteEdit, setCloseModal
           empresa,
         };
 
-        let resUpdate = await updateCliente(cliente);
-        // console.log('resUpdate', resUpdate)
+        await updateCliente(cliente);
       }
     }
 
@@ -64,8 +73,8 @@ export default function Modal({ isOpen, setModalOpen, clienteEdit, setCloseModal
       setNome("");
       setSalario("");
       setEmpresa("");
-      setCloseModal({})
-      setModalOpen(false);
+      setCloseModal();
+      setModalOpen();
     }
 
     return (
