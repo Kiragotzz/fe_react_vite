@@ -5,34 +5,44 @@ import Sidebar from "../Sidebar";
 import logo from "../../../assets/logo-Teddy.png";
 import { useNavigate, useLocation, Link, NavLink } from "react-router-dom";
 
-function Header() {
+function Header({selecionados}) {
   const navigate = useNavigate();
   const { state } = useLocation();
   let { nome } = state && state.nome ? state : { nome: false };
-  const [nomeUser, setNomeUser] = useState(nome)
+  const [nomeUser, setNomeUser] = useState(nome);
+  const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
     // sempre que renderiza
     if (!nome) {
       nome = localStorage.getItem("nome");
-      nome = JSON.parse(nome)
+      nome = JSON.parse(nome);
       if (!nome) {
         navigate("/");
         return;
       }
-      setNomeUser(nome)
+      setNomeUser(nome);
     }
 
     localStorage.setItem("nome", JSON.stringify(nome));
+
+    let path = window.location.href.split('/')[window.location.href.split('/').length - 1]
+    if(path == 'clientesSelecionados'){
+      setIsActive(true)
+    }
   });
 
   const [sidebar, setSidebar] = useState(false);
   const showSiderbar = () => setSidebar(!sidebar);
 
   const sair = () => {
-    localStorage.removeItem('nome')
+    localStorage.removeItem("nome");
     navigate("/");
     return;
+  };
+
+  const handlePageSelecionados = () => {
+    navigate('/clientesSelecionados', { state: { selecionados } });
   };
 
   return (
@@ -51,9 +61,13 @@ function Header() {
         <NavLink className="link" to="/clientes">
           Clientes
         </NavLink>
-        <NavLink className="link" to="/clientesSelecionados">
+        <a
+          className={isActive?'active-path':''}
+          onClick={handlePageSelecionados}
+          // to="/clientesSelecionados"
+        >
           Clientes Selecionados
-        </NavLink>
+        </a>
         <div onClick={sair}>
           <a>Sair</a>
         </div>

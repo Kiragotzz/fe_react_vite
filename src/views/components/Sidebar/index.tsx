@@ -31,7 +31,7 @@ const Sidebar = ({active}) => {
       <Content>
         <Link className='link' to="/" onClick={sair}> <BiSolidHome />  <div>Home</div></Link>
         <Link className='link' to="/clientes"> <FaUser />  <div>Clientes</div></Link>
-        <Link className='link' to="/produtos"> <IoGridSharp />  <div>Produtos</div></Link>
+        {/* <Link className='link' to="/clientes"> <IoGridSharp />  <div>Produtos</div></Link> */}
       </Content>
     </Container>
   )

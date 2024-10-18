@@ -4,7 +4,7 @@ export const Container = styled.div`
   height: 100px;
   display: flex;
   background-color: #f1f1f1;
-  box-shadow: 0 0 20px 3px;
+  box-shadow: 0 0 2px 1px;
 
   .part-one {
     height: 100px;
@@ -31,6 +31,11 @@ export const Container = styled.div`
     .active {
       font-weight: bold;
       color: red;
+    }
+
+    .active-path {
+      font-weight: bold;
+      // color: red;
     }
 
     div a {
