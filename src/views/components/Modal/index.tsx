@@ -56,6 +56,7 @@ export default function Modal({
         };
 
         await createCliente(cliente);
+        setModalOpen();
       } else {
         let cliente: any = {
           id: id,
@@ -65,6 +66,7 @@ export default function Modal({
         };
 
         await updateCliente(cliente);
+        setModalOpen();
       }
     }
 
