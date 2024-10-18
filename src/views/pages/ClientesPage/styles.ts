@@ -3,11 +3,15 @@ import styled from 'styled-components'
 export const Container: any = styled.div`
   // margin: 16px;
   padding: 0 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   > .infos-clientes{
     padding: 16px 16px 0 16px;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 
     >encontrados{}
     >clientes-pagina{}
@@ -64,15 +68,12 @@ export const Container: any = styled.div`
 export const Content: any = styled.div`
   padding: 16px;
   border-radius: 4px;
-  // border: 2px solid red;
   display: grid;
-  /* justify-items: center; */
-  /* gap: 16px; */
-  // grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
   max-width: 1380px;
+  width: -webkit-fill-available;
 `
 
 export const Card: any = styled.div`
